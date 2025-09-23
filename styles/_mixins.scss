@@ -1,0 +1,69 @@
+// Mixin para flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Mixin para centralizar elementos
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin para botões
+@mixin button($bg-color, $text-color, $border-color: null) {
+  display: inline-block;
+  padding: 12px 25px;
+  background: $bg-color;
+  color: $text-color;
+  text-decoration: none;
+  border-radius: $border-radius;
+  margin: 10px 10px 10px 0;
+  transition: all $transition-fast;
+  font-weight: 600;
+  border: 2px solid $border-color or $bg-color;
+  
+  &:hover {
+    background: transparent;
+    color: $bg-color;
+  }
+}
+
+// Mixin para responsividade
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: #{$breakpoint-sm}) { @content; }
+  }
+  @if $breakpoint == md {
+    @media (max-width: #{$breakpoint-md}) { @content; }
+  }
+  @if $breakpoint == lg {
+    @media (max-width: #{$breakpoint-lg}) { @content; }
+  }
+  @if $breakpoint == xl {
+    @media (max-width: #{$breakpoint-xl}) { @content; }
+  }
+}
+
+// Mixin para títulos de seção
+@mixin section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  color: $secondary-color;
+  position: relative;
+  
+  &:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: $primary-color;
+    margin: 15px auto;
+    border-radius: 2px;
+  }
+}
